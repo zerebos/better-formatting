@@ -43,6 +43,9 @@ module.exports = class RoleColorEverywhere extends Plugin {
         if (category === "varied") return this.makeVaried(text);
         const replacementList = replacements[category];
         text = text.split("");
+
+        if (category === "upsidedown") text = text.reverse()
+        
         for (let c = 0; c < text.length; c++) {
             const index = replaceable.indexOf(text[c]);
             if (index < 0) continue; // not a replaceable character
